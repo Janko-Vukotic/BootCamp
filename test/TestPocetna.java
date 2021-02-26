@@ -30,8 +30,6 @@ public class TestPocetna {
 		}
 	
 	
-	
-	
 	@Test (priority = 1)
 	public void startFreeTrialFirstWay () throws InterruptedException {
 		driver.get(Pocetna.URL);
@@ -53,7 +51,7 @@ public class TestPocetna {
 	public void startFreeTrialSecondWay () throws InterruptedException {
 		driver.get(Pocetna.URL);
 		driver.manage().window().maximize();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		Pocetna.acceptCookies(driver);
 		Pocetna.clickX(driver);
 		Pocetna.clickStart1ForSecondWay(driver);
@@ -71,15 +69,17 @@ public class TestPocetna {
 	public void aboutUs () throws Exception {
 		driver.get(Pocetna.URL_ABOUT);
 		driver.manage().window().maximize();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		Pocetna.acceptCookies(driver);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String actual = driver.getCurrentUrl();
 		String expected = Pocetna.URL_ABOUT;
 		Assert.assertEquals(actual, expected);
 		Pocetna.takeSnapShot(driver, Pocetna.SS_DESTINATION); 
 		
 	}
+	
+
 	
 /*	@Test (priority = 4)
 	

@@ -12,6 +12,8 @@ import adrese.NoviZaposleni;
 
 public class NoviZaposleniTest {
 	
+	public static WebDriver driver;
+	
 	@BeforeClass
 	public void createDriver() {
 		System.setProperty("webdriver.chrome.driver","C:\\selenium-java-3.141.59\\chromedriver_win32\\ChromeDriver.exe");
@@ -24,16 +26,18 @@ public class NoviZaposleniTest {
 		Thread.sleep(1000);
 		Dashboard.clickStaff(driver);
 		Thread.sleep(2000);
-		NoviZaposleni.inputEmloyeeName(driver, name);
-		NoviZaposleni.inputEmployeeLastName(driver, surname);
-		NoviZaposleni.inputEmployeeEmail(driver, email);
+		NoviZaposleni.inputEmployeeName(driver, NoviZaposleni.getKeys1());
+		NoviZaposleni.inputEmployeeLastName(driver, NoviZaposleni.getKeys2());
+		NoviZaposleni.inputEmployeeEmail(driver, NoviZaposleni.getKeys3());
 		NoviZaposleni.clickSaveEmployee (driver);
 		String actual = driver.getCurrentUrl();
 		String expected = NoviZaposleni.EXPECTED_URL;
 		Assert.assertEquals(actual, expected);
 		
-	
 	}
+	
+	
 	
 }
 
+	
